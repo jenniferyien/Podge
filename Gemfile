@@ -26,6 +26,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+#specfic omniauth 1.4.0 is BROKEN
+gem 'omniauth-oauth2', '1.3.1'
+
+gem 'omniauth-facebook'
+gem "omniauth-google-oauth2"
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
