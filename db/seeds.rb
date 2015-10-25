@@ -81,6 +81,20 @@ mayo = Item.create(name: 'mayonnaise')
 baguette = Item.create(name: 'baguette')
 cucumber = Item.create(name: 'cucumber')
 dweed = Item.create(name: 'dill weed')
+beef = Item.create(name: 'beef')
+flour = Item.create(name: 'all-purpose flour')
+bbroth = Item.create(name: 'beef broth')
+mustard = Item.create(name: 'mustard')
+mushroom = Item.create(name: 'mushrooms')
+scream = Item.create(name: 'sour cream')
+wwine = Item.create(name: 'white wine')
+vanilla = Item.create(name: 'vanilla extract')
+icecream = Item.create(name: 'ice cream')
+fruit = Item.create(name: 'fruit preserves')
+celery = Item.create(name: 'celery')
+carrot = Item.create(name: 'carrots')
+bleaves = Item.create(name: 'bay leaves')
+beer = Item.create(name: 'beer')
 
 # Recipe
 Recipe.create([
@@ -93,11 +107,43 @@ Recipe.create([
   {user_id: nil, title: 'Nanaimo Bars III', image_url: 'http://images.media-allrecipes.com/userphotos/720x405/1100995.jpg', description: 'They are a popular Canadian confection, basically a bar cookie,  that to me tastes very similar to a richly chocolaty, loaded fudge. They are named after the west coast city of Nanaimo, British Columbia.', cruisine_id: 13, category_id: 5, cook_time: "30 min", serving_num: '16', instruction: "In the top of a double boiler, combine 1/2 cup butter, white sugar and cocoa powder. Stir occasionally until melted and smooth. Beat in the egg, stirring until thick, 2 to 3 minutes. Remove from heat and mix in the graham cracker crumbs, coconut and almonds (if you like). Press into the bottom of an ungreased 8x8 inch pan. \n For the middle layer, cream together 1/2 cup butter, heavy cream and custard powder until light and fluffy. Mix in the confectioners' sugar until smooth. Spread over the bottom layer in the pan. Chill to set. \n While the second layer is chilling, melt the semisweet chocolate and 2 teaspoons butter together in the microwave or over low heat. Spread over the chilled bars. Let the chocolate set before cutting into squares."},
   {user_id: nil, title: 'Sesame Pasta Chicken Salad', image_url: 'http://images.media-allrecipes.com/userphotos/720x405/92940.jpg', description: 'A refreshing light pasta salad with a delicious Asian flair. Great for a summer cookout or picnic. Tastes great right away, and even better if you can allow it to marinate for a while.', cruisine_id: 17, category_id: 8, cook_time: '30 min', serving_num: '10', instruction: "Heat a skillet over medium-high heat. Add sesame seeds, and cook stirring frequently until lightly toasted. Remove from heat, and set aside. \n Bring a large pot of lightly salted water to a boil. Add pasta, and cook for 8 to 10 minutes, or until al dente. Drain pasta, and rinse under cold water until cool. Transfer to a large bowl. \n In a jar with a tight-fitting lid, combine vegetable oil, soy sauce, vinegar, sesame oil, sugar, sesame seeds, ginger, and pepper. Shake well. \n Pour sesame dressing over pasta, and toss to coat evenly. Gently mix in chicken, cilantro, and green onions."},
   {user_id: nil, title: 'Creamy Dill Cucumber Toasties', image_url: 'http://brightcove.vo.llnwd.net/d21/unsecured/media/1033249144001/1033249144001_2472757820001_video-still-for-video-2469888776001.jpg?pubId=1033249144001', decription: 'It looks great on the platter, and it is super easy!', cruisine_id: 17, category_id: 1, cook_time: '15 min', serving_num: '12', instruction: "In a medium bowl, mix together cream cheese, dressing mix and mayonnaise. \n Spread a thin layer of the cream cheese mixture on a slice of bread, and top with a slice of cucumber. Sprinkle with dill. Repeat with remaining ingredients."},
-
+  {user_id: nil, title: 'Beef Stroganoff III', image_url: 'https://ced1213.files.wordpress.com/2012/11/beef-stroganoff-2x2.jpg', description: 'Incredible flavor, a unique combination of down-home and exotic.', cruisine_id: 4, category_id: 6, cook_time: '1 hour 40 min', serving_num: '8', instruction: "Remove any fat and gristle from the roast and cut into strips 1/2 inch thick by 2 inches long. Season with 1/2 teaspoon of both salt and pepper. \n In a large skillet over medium heat, melt the butter and brown the beef strips quickly, then push the beef strips off to one side. Add the onions and cook slowly for 3 to 5 minutes, then push to the side with the beef strips. \n Stir the flour into the juices on the empty side of the pan. Pour in beef broth and bring to a boil, stirring constantly. Lower the heat and stir in mustard. Cover and simmer for 1 hour or until the meat is tender. \n Five minutes before serving, stir in the mushrooms, sour cream, and white wine. Heat briefly then salt and pepper to taste."},
+  {user_id: nil, title: 'Russian Tea Cakes I', image_url: 'http://the-color-of-tea.com/wp-content/uploads/2014/09/russian-tea-cakes.jpg', description: "Family recipe that's been made at Christmas time by at least 4 generations.", cruisine_id: 4, category_id: 7, cook_time: '35 min', serving_num: '36', instruction: "Preheat oven to 350 degrees F (175 degrees C). \n In a medium bowl, cream butter and vanilla until smooth. Combine the 6 tablespoons confectioners' sugar and flour; stir into the butter mixture until just blended. Mix in the chopped walnuts. Roll dough into 1 inch balls, and place them 2 inches apart on an ungreased cookie sheet. \n Bake for 12 minutes in the preheated oven. When cool, roll in remaining confectioners' sugar. I also like to roll mine in the sugar a second time."},
+  {user_id: nil, title: 'Ice Cream Kolacky' image_url: 'http://hostedmedia.reimanpub.com/TOH/Images/Photos/37/300x300/exps43014_TH1443683D69C.jpg', description: 'This dough is made rich by adding ice cream. It is made even quicker and easier by using a canned filling.', cruisine_id: 4, category_id: 5, cook_time: '20 min', serving_num: '12', instruction: "Add flour to butter or margarine and crumble in pastry blender. Add ice cream to crumbled mixture and, using dough hooks, work into dough. (If you don't have dough hooks, use your hands. Rubber gloves will help cut down the cold temperature from the ice cream.) When dough is smooth, shape into ball and refrigerate overnight. \n Preheat oven to 350 degrees F (175 degrees C). \n Roll dough to about 1/8-inch thickness on a floured surface. Using the rim of a glass dipped in flour, cut out circles. Place on a cookie sheet and make a thumbprint in center of each. Fill thumbprints with 1/2 teaspoon fruit filling. \n Bake at 350 degrees F (175 degrees C) for 20 minutes. Sprinkle with confectioners' sugar when cool. Eat and enjoy!"},
+  {user_id: nil, title: 'Beer Braised Brisket', image_url: 'http://www.foodstoriesblog.com/wp-content/uploads/2013/04/Allaya-Fleischer_image-52_Balsamic-Braised-Brisket.jpg', description: 'Slow cooking beef brisket allows the richness of the beer to permeate the meat and enhance the body and flavors of the gravy. Our German-style Creamed Spinach is a perfect side dish for the brisket.', cruisine_id: 5, category_id: 6, cook_time: '4 hours 55 min', serving_num: '6 to 8', instruction: "Preheat the oven to 350 degrees F. Pat the brisket until very dry and sprinkle liberally with salt and pepper. Heat the oil in a large Dutch oven over medium-high heat, and then brown the meat well on all sides, 10 to 12 minutes. Transfer to a large plate and set aside. \n Combine 1/4 cup of the beef stock, the celery, carrots, bay leaves, onions and thyme in the same Dutch oven and cook until the vegetables have started to brown and soften slightly, 4 to 6 minutes. Pour in the beer, bring to a boil and cook until reduced by half, 2 to 3 minutes. Return the brisket to the Dutch oven, and then pour in the remaining beef stock. The brisket should be at least halfway covered by the liquid. \n Cover the pot and transfer to the oven for 3 hours 30 minutes. Remove the lid and cook uncovered for another 30 minutes. Let the brisket rest in the liquid in the pot for 20 minutes before transferring to a cutting board. \n To serve, slice the brisket against the grain, place on a platter and ladle some braising liquid on top."},
   ])
 
 # Ingredient
 Ingredient.create([
+  {recipe_id: 13, item_id: beef.id, quanity: '5', unit: 'pound, brisket'},
+  {recipe_id: 13, item_id: vegetable.id, quanity: '2', unit: 'tbsp.'},
+  {recipe_id: 13, item_id: bbroth.id, quanity: '4', unit: 'cups'},
+  {recipe_id: 13, item_id: celery.id, quanity: '4', unit: 'stalks'},
+  {recipe_id: 13, item_id: carrot.id, quanity: '3', unit: 'large'},
+  {recipe_id: 13, item_id: bleaves.id, quanity: '2', unit: ''},
+  {recipe_id: 13, item_id: onion.id, quanity: '2', unit: 'large, red'},
+  {recipe_id: 13, item_id: thyme.id, quanity: '1', unit: 'small bundle'},
+  {recipe_id: 13, item_id: beer.id, quanity: '12', unit: 'ounce, bottle dark German'},
+  {recipe_id: 12, item_id: icecream.id, quanity: '1', unit: 'pint, vanilla'},
+  {recipe_id: 12, item_id: butter.id, quanity: '2', unit: 'cups'},
+  {recipe_id: 12, item_id: flour.id, quanity: '4', unit: 'cups'},
+  {recipe_id: 12, item_id: fruit.id, quanity: '1/2', unit: 'cup'},
+  {recipe_id: 11, item_id: butter.id, quanity: '1', unit: 'cup'},
+  {recipe_id: 11, item_id: vanilla.id, quanity: '1', unit: 'tsp.'},
+  {recipe_id: 11, item_id: sugar.id, quanity: '6', unit: 'tbsp.'},
+  {recipe_id: 11, item_id: flour.id, quanity: '2', unit: 'cups'},
+  {recipe_id: 11, item_id: walnut.id, quanity: '1', unit: 'cup'},
+  {recipe_id: 10, item_id: salt.id, quanity: '1/2', unit: 'tsp.'},
+  {recipe_id: 10, item_id: blackp.id, quanity: '1/2', unit: 'tsp., ground'},
+  {recipe_id: 10, item_id: butter.id, quanity: '4', unit: 'ounces'},
+  {recipe_id: 10, item_id: onion.id, quanity: '4', unit: 'sliced green'},
+  {recipe_id: 10, item_id: flour.id, quanity: '4', unit: 'tbsp.'},
+  {recipe_id: 10, item_id: bbroth.id, quanity: '10.5', unit: 'ounce, condensed'},
+  {recipe_id: 10, item_id: mustard.id, quanity: '1', unit: 'tsp.'},
+  {recipe_id: 10, item_id: mushroom.id, quanity: '6', unit: 'ounce, drained and sliced'},
+  {recipe_id: 10, item_id: scream.id, quanity: '1/3', unit: 'cup'},
+  {recipe_id: 10, item_id: wwine.id, quanity: '1/3', unit: 'cup'},
+  {recipe_id: 10, item_id: beef.id, quanity: '2', unit: 'pounds, chuck roast'},
   {recipe_id: 9, item_id: ccheese.id, quanity: '8', unit: 'ounce, softened'},
   {recipe_id: 9, item_id: dressing.id, quanity: '.7', unit: 'ounce, Italian-style'},
   {recipe_id: 9, item_id: mayo.id, quanity: '1/2', unit: 'cup'},
