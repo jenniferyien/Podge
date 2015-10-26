@@ -1,49 +1,8 @@
+<div class='container'>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @recipe.user %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @recipe.title %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @recipe.image_url %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @recipe.description %>
-</p>
-
-<p>
-  <strong>Cruisine:</strong>
-  <%= @recipe.cruisine %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @recipe.category %>
-</p>
-
-<p>
-  <strong>Cook time:</strong>
-  <%= @recipe.cook_time %>
-</p>
-
-<p>
-  <strong>Serving num:</strong>
-  <%= @recipe.serving_num %>
-</p>
-
-<p>
-  <strong>Instruction:</strong>
-  <%= @recipe.instruction %>
-</p>
+<%= react_component 'ShowRecipe', {id:@recipe.id} %>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
+</div>

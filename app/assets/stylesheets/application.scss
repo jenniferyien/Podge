@@ -1,0 +1,173 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/*web fonts used*/
+@import url(https://fonts.googleapis.com/css?family=Amaranth);
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web);
+
+/*color scheme*/
+$darkgrey: #64616D;
+$grey: #7B7D8B;
+$torq: #CDDBDB;
+$beige: #D9CAB5;
+$cream: #ECEADA;
+
+// setting body font
+*, body {
+  margin: 0;
+  font-family: 'Titillium Web';
+}
+
+// setting heading font
+h1 , h2 , h3, h4, h5, h6 {
+  font-family: 'Amaranth';
+}
+
+// link setting
+a {
+  color: #fff;
+  text-decoration: none;
+
+  &:visited {
+    color: $cream;
+  }
+
+  &:hover {
+    color: $cream;
+  }
+}
+
+.container {
+  padding: 2% 5%;
+  background-color: $torq;
+  height: 100%;
+}
+
+//sidebar hover
+
+ .navigation {
+   height: 100%;
+   width:210px;
+   position:fixed;
+   left:-230px;
+   background:$darkgrey;
+   padding:30px;
+   -webkit-transition:all .3s ease-out;
+ }
+
+ .navigation:hover {
+   left:0;
+   background:$darkgrey;
+   box-shadow:3px 0px 30px 2px rgba(0,0,0,.7);
+ }
+
+//navigation name
+.navigation h2 {
+  margin-top: 8px;
+  padding-bottom: 15px;
+  font-size: 25px;
+  color: $cream;
+}
+
+//navigation p
+.navigation p {
+  color: $cream;
+  font-size: 15px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+//menu side navigation section
+ .navigation nav{
+   list-style:none;
+ }
+
+ .navigation nav li {
+   padding:8px 20px;
+   width: 155px;
+   background:$grey;
+   color:$cream;
+   font-weight:700;
+   font-size: 14px;
+   border-left:2px solid $torq;
+   margin:5px 0;
+   -webkit-transition:all .3s ease;
+ }
+
+ .navigation nav li:hover {
+   background:$grey;
+   border-left:7px solid $torq;
+   padding-left:15px;
+   -webkit-transition:none;
+ }
+ .navigation nav li:active {
+   background:$grey;
+   color:white;
+ }
+
+ // hamburger symbol
+ .navigation:hover .grab{
+  right:none;
+  color: $grey;
+  -webkit-transform: rotate(0);
+  font-size: 30px;
+  right:40px;
+ }
+
+ .navigation .grab{
+  position:absolute;
+  font-size: 30px;
+  right:7px;
+  top:35px;
+  color:$cream;
+  -webkit-transform: rotate(90deg);
+  -webkit-transition:all .3s ease-out;
+ }
+
+//facebook sign in
+ #facebook {
+   width: 200px;
+   background-color: #063F8D;
+   border: none;
+   font-size: 15px;
+   color: #fff;
+   padding: 5px;
+   border-radius: 5px;
+   margin: 10px 0;
+ }
+
+//google sign in
+ #google {
+   width: 200px;
+   background-color: #D53326;
+   border: none;
+   font-size: 15px;
+   color: #fff;
+   padding: 5px;
+   border-radius: 5px;
+ }
+
+//logout button
+ .logout {
+   width: 195px;
+   background-color: $grey;
+   border: none;
+   font-size: 15px;
+   color: #fff;
+   padding: 5px;
+   border-radius: 5px;
+ }

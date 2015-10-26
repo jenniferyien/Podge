@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'jquery-turbolinks'
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
@@ -31,6 +32,13 @@ gem 'omniauth-oauth2', '1.3.1'
 
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
+
+#install react
+gem 'react-rails'
+
+#jquery ui
+gem 'activerecord-sortable'
+gem 'jquery-ui-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

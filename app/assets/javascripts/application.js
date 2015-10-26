@@ -12,5 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require sortable
+//= require jquery-ui/sortable
+//= require jquery.turbolinks
+//= require jquery_ujs
+//= require react
+//= require react_ujs
 //= require turbolinks
 //= require_tree .
+
+// adding abiliy to sort and move around recipes for that specific session
+// when page refreshes page resorts back to normal
+$(function() {
+    $( ".sortable" ).sortable();
+    $( ".sortable" ).disableSelection();
+  });

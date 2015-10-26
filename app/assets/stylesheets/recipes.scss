@@ -1,3 +1,110 @@
 // Place all the styles related to the recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*color scheme*/
+$darkgrey: #64616D;
+$grey: #7B7D8B;
+$torq: #CDDBDB;
+$beige: #D9CAB5;
+$cream: #ECEADA;
+
+ul {
+  list-style: none;
+}
+
+//homepage image
+#homepageintro {
+  background: linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.85)), image-url('food.jpg');
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  background-color: $torq;
+}
+
+//homepage title
+#homepageintro h1 {
+  position: fixed;
+   top: 50%;
+   left: 50%;
+   font-size: 125px;
+   color: $cream;
+   opacity: .8;
+}
+
+//homepage slogan
+#homepageintro p {
+  position: fixed; /* or absolute */
+   top: 65%;
+   left: 48%;
+   font-size: 30px;
+   line-height: 1em;
+   color: $cream;
+   opacity: .6;
+   text-align: right;
+}
+
+
+//each recipe info
+.rbox {
+  width: 450px;
+  height: 200px;
+  color: $cream;
+  background-color: $darkgrey;
+  float: left;
+  margin: 5px;
+  box-shadow:2px 2px 0px 0px rgba(0,0,0,.7);
+}
+
+.rbox h2 {
+  margin: 9px 0;
+  text-align: center;
+}
+.rbox h2:hover {
+  color: $grey
+}
+
+.rbox img {
+  margin: 5px 5px 5px 20px;
+  float: left;
+}
+.rbox p {
+  padding: 8px 0;
+  padding-left: 8px;
+  font-size: 12px;
+  overflow: hidden;
+  width: 150px;
+  height: 138px;
+  text-align: center;
+}
+
+//div for recipe
+.foodinfo {
+  margin: 20px 0;
+  overflow: auto;
+  height: 100%;
+}
+
+
+@media (max-width: 950px) {
+  #homepageintro h1 {
+    font-size: 100px;
+    left: 30%;
+  }
+  #homepageintro p {
+    left: 30%;
+    font-size: 22px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 582px) {
+  #homepageintro h1 {
+    top: 50%;
+    left: 18%;
+  }
+  #homepageintro p {
+    left: 18%;
+  }
+
+}

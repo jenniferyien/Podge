@@ -7,16 +7,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="user_nav">
+  <div class="navigation">
+    <h2>Podge</h2>
+    <nav>
+      <a href="/"><li>Home </li></a>
+      <a href="/recipes"><li>Search </li></a>
+      <% if current_user %>
+        <a href="#"><li>Favorites </li></a>
+        <a href="#"><li>My Recipes </li></a>
+        <li><%= link_to 'Add New Recipe', new_recipe_path %></li>
+      <% end %>
+      <a href="#"><li>About </li></a>
+      <a href="#"><li>Contact </li></a>
+    </nav>
     <% if current_user %>
-      Signed in as <strong><%= current_user.first_name %></strong>!
-      <%= link_to "Sign out", signout_path%>
+      <p><strong>Signed in as <%= current_user.first_name %></strong><p>
+      <button class='logout'><strong><%= link_to "Sign out", signout_path%></strong></button>
     <% else %>
-      <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-      <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+      <button id='facebook'><strong><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></strong></button>
+      <button id='google'><strong><%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %></strong></button>
     <% end %>
+    <div class="grab">&#9776;</div>
   </div>
-<%= yield %>
+
+  <%= yield %>
+
 
 </body>
 </html>
