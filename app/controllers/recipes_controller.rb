@@ -25,9 +25,24 @@ class RecipesController < ApplicationController
   end
 
   def favorite
-    @info = params[:data]
-    # @favorite = Favorite.new(:params)
-    raise
+    if current_user
+      info = params[:recipe_id]
+      @found = Favorite.find_by(recipe_id: info, user_id: current_user.id)
+      if !@found
+        @favorite = Favorite.new
+        @favorite.recipe_id = info
+        @favorite.user_id = current_user.id
+        @favorite.save!
+      end
+    end
+  end
+
+  def showFavorites
+    if current_user
+      @favorites = Favorite.where(user_id: current_user.id)
+    else
+      redirect_to '/'
+    end
   end
 
   # POST /recipes

@@ -13,12 +13,8 @@ var ShowRecipe = React.createClass({
   },
   handleFavorite: function(){
     $.ajax({
-      url: '/favoriteRecipe',
+      url: '/favoriteRecipe/' + this.state.recipe.id,
       method: 'POST',
-      data: {
-        user_id: this.props.currentUser,
-        recipe_id: this.state.recipe.id
-      },
       success: function(data, status, xhr){
         console.log(data)
       },
@@ -26,19 +22,24 @@ var ShowRecipe = React.createClass({
         console.log(error)
       }
     })
+    document.location = '/favoriteRecipe'
   },
   render: function(){
+    var favorite;
     var ingredientArray = $.makeArray(this.state.recipe.ingredients)
     var eachIngredient = ingredientArray.map(function(item){
       return (
         <li>{item.quanity} {item.unit} {item.item}</li>
       )
     });
+    if (this.props.currentUser){
+      favorite = <a href='#' onClick={this.handleFavorite}><li><img src={this.props.heart} width="22" height="22"/></li></a>
+    }
     return (
       <div className='recipeShow'>
         <div className='select'>
           <ul className='icons'>
-            <a href='#' onClick={this.handleFavorite}><li><img src={this.props.heart} width="22" height="22"/></li></a>
+            {favorite}
             <a href='#'><li><img src={this.props.fork} width="42" height="32"/></li></a>
           </ul>
         </div>

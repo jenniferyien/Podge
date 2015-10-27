@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy', as: 'signout'
 
-  post '/favoriteRecipe', to: 'recipes#favorite'
+  post '/favoriteRecipe/:recipe_id', to: 'recipes#favorite'
+  get '/favoriteRecipe', to: 'recipes#showFavorites'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
