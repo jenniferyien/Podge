@@ -1,5 +1,5 @@
 json.array!(@recipes) do |recipe|
-  json.extract! recipe, :id, :user_id, :title, :image_url, :description, :cruisine_id, :category_id, :cook_time, :serving_num, :instruction
+  json.extract! recipe, :id, :recipe_id, :position, :user_id, :title, :image_url, :description, :cuisine_id, :category_id, :cook_time, :serving_num, :instruction
   json.ingredients do
       json.array!(recipe.ingredients) do |ingredient|
         json.extract! ingredient, :id, :quanity, :unit

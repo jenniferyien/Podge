@@ -1,4 +1,5 @@
 json.array!(@favorites) do |favorite|
+  json.extract! favorite, :id
   json.recipe do
       json.recipe_id favorite.recipe.id
       json.title favorite.recipe.title

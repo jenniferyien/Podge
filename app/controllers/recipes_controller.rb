@@ -18,12 +18,37 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+    @recipe.ingredients.build
   end
 
   # GET /recipes/1/edit
   def edit
   end
 
+  # forking a recipe
+  def fork
+    if current_user
+      recipeNum = params[:recipe_id]
+      @found = Recipe.find_by(recipe_id: recipeNum, user_id: current_user.id)
+      if !@found
+        @recipe = Recipe.find_by(id: recipeNum)
+        @recipeInfo = @recipe.deep_clone :include => [:ingredients]
+        @recipeInfo.user_id = current_user.id
+        @recipeInfo.recipe = @recipe
+        @recipeInfo.save!
+        head :ok
+      end
+    end
+  end
+
+  #display for all recipe user created or forked
+  def userRecipe
+    @user_id = params[:id]
+    @user = User.find_by(id: @user_id)
+    @recipes = Recipe.where(user_id: @user_id)
+  end
+
+  #saving favorite recipe for user
   def favorite
     if current_user
       info = params[:recipe_id]
@@ -33,10 +58,14 @@ class RecipesController < ApplicationController
         @favorite.recipe_id = info
         @favorite.user_id = current_user.id
         @favorite.save!
+        head :ok
       end
+    else
+      redirect_to '/'
     end
   end
 
+  #displaying user select recipes
   def showFavorites
     if current_user
       @favorites = Favorite.where(user_id: current_user.id)
@@ -93,6 +122,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:user_id, :title, :image_url, :description, :cruisine_id, :category_id, :cook_time, :serving_num, :instruction)
+      params.require(:recipe).permit(:user_id, :title, :image_url, :description, :cuisine_id, :category_id, :cook_time, :serving_num, :instruction, :ingredients_attributes => [:id, :quanity, :unit, :item])
     end
 end

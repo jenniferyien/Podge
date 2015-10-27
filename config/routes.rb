@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
   resources :recipes
 
+  # main page
   root 'recipes#home'
+  # omniauth callback
   get 'auth/:provider/callback', to: 'sessions#create'
+  # signout user
   get '/logout', to: 'sessions#destroy', as: 'signout'
-
+  # saving recipe
   post '/favoriteRecipe/:recipe_id', to: 'recipes#favorite'
+  # display favorite recipe list
   get '/favoriteRecipe', to: 'recipes#showFavorites'
+  # forking a recipe
+  post '/forkRecipe/:recipe_id', to: 'recipes#fork'
+
+  get '/userRecipe/:id', to: 'recipes#userRecipe'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

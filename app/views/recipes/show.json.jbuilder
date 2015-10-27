@@ -1,6 +1,6 @@
-json.extract! @recipe, :id, :user_id, :title, :image_url, :description, :category_id, :cook_time, :serving_num, :instruction, :created_at, :updated_at
-json.cruisine do
-  json.name @recipe.cruisine.name
+json.extract! @recipe, :id, :recipe, :user_id, :title, :image_url, :description, :cook_time, :serving_num, :instruction, :created_at, :updated_at
+json.cuisine do
+  json.name @recipe.cuisine.name
 end
 
 json.category do

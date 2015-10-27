@@ -28,8 +28,8 @@
     <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.label :cruisine_id %><br>
-    <%= f.text_field :cruisine_id %>
+    <%= f.label :cuisine_id %><br>
+    <%= f.text_field :cuisine_id %>
   </div>
   <div class="field">
     <%= f.label :category_id %><br>
@@ -47,6 +47,28 @@
     <%= f.label :instruction %><br>
     <%= f.text_area :instruction %>
   </div>
+
+
+  <%= f.fields_for :ingredients do |ff|%>
+  <div class="ingredient">
+  <div class="field">
+    <%= ff.label :quanity %><br>
+    <%= ff.text_field :quanity %>
+  </div>
+
+  <div class="field">
+    <%= ff.label :unit %><br>
+    <%= ff.text_field :unit %>
+  </div>
+
+  <div class="field">
+    <%= ff.label :item_id %><br>
+    <%= ff.select :item_id, Item.pluck(:name, :id) %>
+  </div>
+  </div>
+
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

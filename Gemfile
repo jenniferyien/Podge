@@ -40,6 +40,9 @@ gem 'react-rails'
 gem 'activerecord-sortable'
 gem 'jquery-ui-rails'
 
+#using deep cloneable to fork infomation
+gem 'deep_cloneable', '~> 2.1.1'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

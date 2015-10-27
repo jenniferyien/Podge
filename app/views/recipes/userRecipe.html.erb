@@ -1,0 +1,4 @@
+<div class='container'>
+  <h1><%= "#{@user.first_name} #{@user.last_name}'s Recipes" %></h1>
+  <%= react_component 'UserRecipes', {id:@user_id} %>
+</div>

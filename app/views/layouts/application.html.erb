@@ -14,7 +14,7 @@
       <a href="/recipes"><li>Search </li></a>
       <% if current_user %>
         <a href="/favoriteRecipe"><li>Favorites </li></a>
-        <a href="#"><li>My Recipes </li></a>
+        <a href= <%= "/userRecipe/#{current_user.id}" %> ><li>My Recipes </li></a>
         <li><%= link_to 'Add New Recipe', new_recipe_path %></li>
       <% end %>
       <a href="#"><li>About </li></a>

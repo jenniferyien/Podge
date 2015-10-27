@@ -5,7 +5,7 @@ class CreateRecipes < ActiveRecord::Migration
       t.string :title
       t.string :image_url
       t.string :description
-      t.references :cruisine, index: true, foreign_key: true
+      t.references :cuisine, index: true, foreign_key: true
       t.references :category, index: true, foreign_key: true
       t.string :cook_time
       t.string :serving_num
