@@ -1,7 +1,7 @@
 <div class='container'>
 <p id="notice"><%= notice %></p>
 
-<%= react_component 'ShowRecipe', {id:@recipe.id} %>
+<%= react_component 'ShowRecipe', {currentUser:current_user.id, id:@recipe.id, fork: image_url('fork.png'), heart: image_url('heart.png')} %>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>

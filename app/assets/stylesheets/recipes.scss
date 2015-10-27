@@ -86,6 +86,72 @@ ul {
 }
 
 
+
+//showpage for recipe
+.showContainer {
+  width: 100%;
+  min-height: 350px;
+  overflow: auto;
+}
+
+.box {
+  margin: 2% 5px;
+  float: left;
+}
+
+.box.info {
+  width: 475px;
+  text-align: center;
+  line-height: 3em;
+}
+
+.box.info h1 {
+  font-size: 34px;
+}
+
+.box.info p {
+  font-size: 14px;
+  margin: 3.5% 4%;
+}
+
+//ul of ingredients
+.ingredientList li{
+  list-style: disc;
+  font-size: 14px;
+  margin: 10%;
+  width: 300px;
+}
+
+.box.recipe {
+  margin: 2%;
+}
+
+.box.instruction {
+  width: 475px;
+  margin-left: 12%;
+}
+
+.box.instruction p {
+  margin-top: 2%;
+  line-height: 2em;
+  font-size: 14px;
+}
+
+//fork and like icons
+.select {
+  display: inline-block;
+  width: 100%;
+}
+
+.icons {
+  list-style: none;
+}
+
+.icons li{
+  width: 50px;
+  float: right;
+}
+
 @media (max-width: 950px) {
   #homepageintro h1 {
     font-size: 100px;

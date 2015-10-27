@@ -24,6 +24,12 @@ class RecipesController < ApplicationController
   def edit
   end
 
+  def favorite
+    @info = params[:data]
+    # @favorite = Favorite.new(:params)
+    raise
+  end
+
   # POST /recipes
   # POST /recipes.json
   def create

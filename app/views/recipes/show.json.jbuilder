@@ -9,7 +9,7 @@ end
 
 json.ingredients do
   json.array!(@recipe.ingredients) do |ingredient|
-    json.extract! ingredient, :id, :quanity, :unit
+    json.extract! ingredient, :quanity, :unit
     json.item do
       json.name ingredient.item.name
     end

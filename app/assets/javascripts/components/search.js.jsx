@@ -6,7 +6,7 @@ var SearchPage = React.createClass({
     $.ajax({
       url: '/recipes.json',
       method: 'GET',
-      success: function(data, error, xhr){
+      success: function(data, status, xhr){
         this.setState({recipes: data})
       }.bind(this)
     })
