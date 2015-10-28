@@ -41,8 +41,11 @@ $(function() {
     });
 
     $('.ingredient').on('keydown','input',function(){
-      $clone = $('.ingredient').clone()
-
+      $clone = $('.ingredient').clone();
+      $clone.find('input[name^="recipe[ingredients_attributes]"]').each(function(i, input) {
+        $input = $(input)
+        $input.attr('name', $input.attr('name').replace(/\[ingredients_attributes\]\[[0-9]+\]/, '[ingredients_attributes]['+$('.ingredient').length+']'))
+      });
       $('.formLong.itemListing').append($clone)
     });
 });

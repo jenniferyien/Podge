@@ -78,6 +78,9 @@
       <%= ff.label :item_id %><br>
       <%= ff.select :item_id, Item.pluck(:name, :id) %>
     </div>
+    <div class='fielding'>
+      <a href=#><p class='cross'>&#10799;</p></a>
+    </div>
     </div>
   <% end %>
   </div>
