@@ -40,8 +40,8 @@ $(function() {
       $label.css('top','38px');
     });
 
-    $('.ingredient').on('keydown','input',function(){
-      $clone = $('.ingredient').clone();
+    $('form').on('keydown','.ingredient:last input',function(){
+      $clone = $('.ingredient:last').clone();
       $clone.find('input[name^="recipe[ingredients_attributes]"]').each(function(i, input) {
         $input = $(input)
         $input.attr('name', $input.attr('name').replace(/\[ingredients_attributes\]\[[0-9]+\]/, '[ingredients_attributes]['+$('.ingredient').length+']'))
@@ -49,5 +49,5 @@ $(function() {
       $('.formLong.itemListing').append($clone)
     });
 
-    
+
 });

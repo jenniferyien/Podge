@@ -25,6 +25,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1/edit
   def edit
+    @recipe.ingredients.build
   end
 
   # forking a recipe
