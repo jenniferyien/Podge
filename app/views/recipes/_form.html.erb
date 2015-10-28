@@ -11,65 +11,78 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :image_url %><br>
-    <%= f.text_field :image_url %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :cuisine_id %><br>
-    <%= f.text_field :cuisine_id %>
-  </div>
-  <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.text_field :category_id %>
-  </div>
-  <div class="field">
-    <%= f.label :cook_time %><br>
-    <%= f.text_field :cook_time %>
-  </div>
-  <div class="field">
-    <%= f.label :serving_num %><br>
-    <%= f.text_field :serving_num %>
-  </div>
-  <div class="field">
-    <%= f.label :instruction %><br>
-    <%= f.text_area :instruction %>
+  <div class='formLong'>
+    <div class="formItem">
+      <%= f.label :title %><br>
+      <%= f.text_field :title, placeholder: 'Title' %>
+    </div>
   </div>
 
+  <div class='formBox'>
+    <div class="field">
+      <%= f.label :cuisine_id %><br>
+      <%= f.select :cuisine_id,Cuisine.pluck(:name, :id) %>
+    </div>
+  </div>
 
+  <div class='formBox'>
+    <div class="field">
+      <%= f.label :category_id %><br>
+      <%= f.select :category_id, Category.pluck(:name, :id) %>
+    </div>
+  </div>
+
+  <div class='formBox'>
+    <div class="formItem">
+      <%= f.label :image_url %><br>
+      <%= f.text_field :image_url, placeholder: 'Image URL' %>
+    </div>
+    <div class="formItem">
+      <%= f.label :description %><br>
+      <%= f.text_field :description, placeholder: 'Description' %>
+    </div>
+  </div>
+
+  <div class='formBox'>
+    <div class="formItem">
+      <%= f.label :cook_time %><br>
+      <%= f.text_field :cook_time, placeholder: 'Cook Time' %>
+    </div>
+    <div class="formItem">
+      <%= f.label :serving_num %><br>
+      <%= f.text_field :serving_num, placeholder: 'Serving Number' %>
+    </div>
+  </div>
+
+  <div class='formLong'>
+    <div class="formItem">
+      <%= f.label :instruction %><br>
+      <%= f.text_area :instruction, placeholder: 'Instructions' %>
+    </div>
+  </div>
+
+<div class='formLong itemListing'>
   <%= f.fields_for :ingredients do |ff|%>
-  <div class="ingredient">
-  <div class="field">
-    <%= ff.label :quanity %><br>
-    <%= ff.text_field :quanity %>
-  </div>
+    <div class="ingredient">
+    <div class="fielding">
+      <%= ff.label :quanity %><br>
+      <%= ff.text_field :quanity %>
+    </div>
 
-  <div class="field">
-    <%= ff.label :unit %><br>
-    <%= ff.text_field :unit %>
-  </div>
+    <div class="fielding">
+      <%= ff.label :unit %><br>
+      <%= ff.text_field :unit %>
+    </div>
 
-  <div class="field">
-    <%= ff.label :item_id %><br>
-    <%= ff.select :item_id, Item.pluck(:name, :id) %>
-  </div>
-  </div>
-
+    <div class="fielding">
+      <%= ff.label :item_id %><br>
+      <%= ff.select :item_id, Item.pluck(:name, :id) %>
+    </div>
+    </div>
   <% end %>
+  </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class:'submitForm' %>
   </div>
 <% end %>

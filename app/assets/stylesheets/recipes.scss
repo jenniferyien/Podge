@@ -152,6 +152,153 @@ ul {
   float: right;
 }
 
+
+// form pages
+.pageIntro {
+  width: 100vw;
+  height: 30px;
+  background-color: $grey;
+  text-align: center;
+  padding: 8px 0;
+  color: $cream;
+}
+
+// form section
+.formContainer {
+  position: relative;
+  margin: 2% 10%;
+}
+
+.formItem {
+  display:block;
+  position:relative;
+  margin-bottom:10px;
+  height: 65px;
+}
+.formItem label {
+  position:absolute;
+  font-size:9px;
+  letter-spacing:2px;
+  top:28px;
+  left:1px;
+  width:305px;
+  border-radius:5px 5px 0 0;
+  background:$darkgrey;
+  color: $cream;
+  padding:4px 10px;
+  -webkit-transition:all 0.5s ease-in;
+}
+
+.formItem input {
+  background:$grey;
+  color:$cream;
+  letter-spacing:2px;
+  border:1px solid $grey;
+  border-radius:5px;
+  padding:10px;
+  width:305px;
+  font-size:12px;
+  outline:none;
+  position:relative;
+  margin-top:8px;
+}
+
+.formItem textarea {
+  background:$grey;
+  color:$cream;
+  letter-spacing:2px;
+  border:1px solid $grey;
+  border-radius:5px;
+  padding:10px;
+  width:100%;
+  font-size:12px;
+  outline:none;
+  position:relative;
+  margin-top:8px;
+}
+
+.formItem .formError {
+  opacity:0;
+  position:absolute;
+  top:15px;
+  right:0;
+  padding:9px 10px;
+  width:160px;
+  border:1px solid #1f2124;
+  color:#752c2d;
+  text-align:right;
+  border-radius:5px;
+  background: #d84f51;
+  font-size:12px;
+}
+
+select {
+    height:35px;
+    width:325px ;
+    font-size: 13px;
+  }
+
+.formBox {
+  float: left;
+  width: 50%;
+}
+.formLong {
+  float: left;
+  width: 100%;
+}
+
+.ingredient {
+  width: 100%;
+  height: 50px;
+  margin: 2% 0;
+}
+
+.fielding {
+  margin-top: 2%;
+  float: left;
+}
+
+#recipe_cuisine_id {
+  overflow: hidden;
+  background: $grey;
+  color: $cream;
+  border: 1px solid $grey;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+#recipe_category_id {
+  overflow: hidden;
+  background: $grey;
+  color: $cream;
+  border: 1px solid $grey;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+
+.submitForm {
+  border:none;
+  // background:#e64c65;
+  background:$grey;
+  padding:7px;
+  color:$cream;
+  border-radius:2px;
+  text-transform:uppercase;
+  margin: 30px 6px 0;
+  width:33em;
+  position:relative;
+  box-shadow: 0 5px $darkgrey;
+  // box-shadow: 0 5px #ba3c50;
+  cursor:pointer;
+}
+
+.submitForm:hover {
+  top:2px;
+  box-shadow: 0 3px $darkgrey;
+  // box-shadow: 0 3px #ba3c50;
+}
+
 @media (max-width: 950px) {
   #homepageintro h1 {
     font-size: 100px;

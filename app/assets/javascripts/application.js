@@ -24,6 +24,25 @@
 // adding abiliy to sort and move around recipes for that specific session
 // when page refreshes page resorts back to normal
 $(function() {
+    // making each recipe moveable position
     $( ".sortable" ).sortable();
     $( ".sortable" ).disableSelection();
-  });
+
+    // form label
+    $('form').on('keydown','input,textarea',function(){
+      $parent=$(this).parents('.formItem');
+      $label=$parent.find('label');
+      $label.css('top','2px');
+    });
+    $('form').on('blur','input,textarea',function(){
+      $parent=$(this).parents('.formItem');
+      $label=$parent.find('label');
+      $label.css('top','38px');
+    });
+
+    $('.ingredient').on('keydown','input',function(){
+      $clone = $('.ingredient').clone()
+
+      $('.formLong.itemListing').append($clone)
+    });
+});

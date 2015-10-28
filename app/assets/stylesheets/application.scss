@@ -68,6 +68,7 @@ a {
    background:$darkgrey;
    padding:30px;
    -webkit-transition:all .3s ease-out;
+   z-index: 1;
  }
 
  .navigation:hover {
