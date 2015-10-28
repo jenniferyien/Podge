@@ -63,24 +63,25 @@
 
 <div class='formLong itemListing'>
   <%= f.fields_for :ingredients do |ff|%>
-    <div class="ingredient">
-    <div class="fielding">
-      <%= ff.label :quanity %><br>
-      <%= ff.text_field :quanity %>
-    </div>
+    <div class="ingredient" id='1'>
+      <%= ff.hidden_field :recipe_id %>
+      <div class="fielding">
+        <%= ff.label :quanity %><br>
+        <%= ff.text_field :quanity %>
+      </div>
 
-    <div class="fielding">
-      <%= ff.label :unit %><br>
-      <%= ff.text_field :unit %>
-    </div>
+      <div class="fielding">
+        <%= ff.label :unit %><br>
+        <%= ff.text_field :unit %>
+      </div>
 
-    <div class="fielding">
-      <%= ff.label :item_id %><br>
-      <%= ff.select :item_id, Item.pluck(:name, :id) %>
-    </div>
-    <div class='fielding'>
-      <a href=#><p class='cross'>&#10799;</p></a>
-    </div>
+      <div class="fielding">
+        <%= ff.label :item_id %><br>
+        <%= ff.select :item_id, Item.pluck(:name, :id) %>
+      </div>
+      <div class='fielding'>
+        <a href=#><p class='cross'>&#10799;</p></a>
+      </div>
     </div>
   <% end %>
   </div>

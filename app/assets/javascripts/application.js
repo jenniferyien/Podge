@@ -40,16 +40,25 @@ $(function() {
       $label.css('top','38px');
     });
 
-    $('.ingredient').on('keydown','input',function(){
-      $clone = $('.ingredient').clone();
+    var cloneCount = 2
+    $('form').on('keydown','.ingredient:last',function(){
+      $clone = $('.ingredient:last').clone(true, true);
+      $clone.attr('id', cloneCount++)
+      var count = $('.ingredient').length
+      $clone.find('label').attr('for').replace(/[0-9]/, count)
       $clone.find('input[name^="recipe[ingredients_attributes]"]').each(function(i, input) {
         $input = $(input)
-        $input.attr('name', $input.attr('name').replace(/\[ingredients_attributes\]\[[0-9]+\]/, '[ingredients_attributes]['+$('.ingredient').length+']'))
+        var change = $input.attr('name').replace(/\[ingredients_attributes\]\[[0-9]+\]/, '[ingredients_attributes]['+count+']')
+        $input.attr('name', change)
+        $input.attr('id', change.replace('[', '_').replace(']','_'))
       });
       $('.formLong.itemListing').append($clone)
     });
 
-    $('.cross').on('click', function(){
-      $(this).remove()
-    })
+    $('.cross').on('click', function(event){
+      var id = $(this).closest(".ingredient").attr("id")
+      console.log(id)
+      $('#'+id).remove();
+    });
+
 });

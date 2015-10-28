@@ -25,6 +25,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1/edit
   def edit
+    @recipe.ingredients.build
   end
 
   # forking a recipe
@@ -125,6 +126,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:user_id, :title, :image_url, :description, :cuisine_id, :category_id, :cook_time, :serving_num, :instruction, :ingredients_attributes => [:id, :quanity, :unit, :item])
+      params.require(:recipe).permit(:user_id, :title, :image_url, :description, :cuisine_id, :category_id, :cook_time, :serving_num, :instruction, :ingredients_attributes => [:recipe_id, :quanity, :unit, :item_id])
     end
 end

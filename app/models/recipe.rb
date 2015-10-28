@@ -10,5 +10,5 @@ class Recipe < ActiveRecord::Base
 
   validates :title, :description, :image_url, presence: true
 
-  accepts_nested_attributes_for :ingredients
+  accepts_nested_attributes_for :ingredients, allow_destroy: true, reject_if: proc { |attr| attr["quantity"].blank? }
 end
