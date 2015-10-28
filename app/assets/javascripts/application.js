@@ -49,5 +49,7 @@ $(function() {
       $('.formLong.itemListing').append($clone)
     });
 
-    
+    $('.cross').on('click', function(){
+      $(this).remove()
+    })
 });
