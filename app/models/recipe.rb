@@ -8,7 +8,7 @@ class Recipe < ActiveRecord::Base
 
   acts_as_sortable
 
-  validates :title, :description, :image_url, presence: true
+  validates :title, :cuisine_id, :category_id, :description, :image_url, presence: true
 
   accepts_nested_attributes_for :ingredients, allow_destroy: true, reject_if: proc { |attr| attr["quantity"].blank? }
 end

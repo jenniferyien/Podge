@@ -43,7 +43,7 @@ var ShowRecipe = React.createClass({
     var ingredientArray = $.makeArray(this.state.recipe.ingredients)
     var eachIngredient = ingredientArray.map(function(item){
       return (
-        <li>{item.quanity} {item.unit} {item.item}</li>
+        <li>{item.quantity} {item.unit} {item.item.name}</li>
       )
     });
     if (this.props.currentUser){

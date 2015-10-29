@@ -22,7 +22,15 @@ var SearchPage = React.createClass({
       )
     });
     return (
+      <div>
+        <nav>
+  <div className="nav-search-container">
+    <input type="search" name="q" className="search-input ui-autocomplete-input" placeholder="Search Site..."/>
+    <div className="submit-container"><input className="submit" type="submit" value="Submit"/></div>
+  </div>
+</nav>
       <ul className='foodinfo sortable'>{recipe}</ul>
+      </div>
     )
   }
 })

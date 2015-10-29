@@ -11,28 +11,33 @@
     </div>
   <% end %>
 
-  <div class='formLong'>
+
+  <div class='formBox'>
+
+    <div class="field">
+
+      <%= f.select :cuisine_id,Cuisine.pluck(:name, :id), include_blank: 'Select Cuisine Type' %>
+    </div>
+
+    <div class="field">
+
+      <%= f.select :category_id, Category.pluck(:name, :id), include_blank: 'Select Category Type' %>
+    </div>
+
     <div class="formItem">
       <%= f.label :title %><br>
       <%= f.text_field :title, placeholder: 'Title' %>
     </div>
-  </div>
 
-  <div class='formBox'>
-    <div class="field">
-      <%= f.label :cuisine_id %><br>
-      <%= f.select :cuisine_id,Cuisine.pluck(:name, :id) %>
+    <div class="formItem">
+      <%= f.label :cook_time %><br>
+      <%= f.text_field :cook_time, placeholder: 'Cook Time' %>
     </div>
-  </div>
-
-  <div class='formBox'>
-    <div class="field">
-      <%= f.label :category_id %><br>
-      <%= f.select :category_id, Category.pluck(:name, :id) %>
+    <div class="formItem">
+      <%= f.label :serving_num %><br>
+      <%= f.text_field :serving_num, placeholder: 'Serving Number' %>
     </div>
-  </div>
 
-  <div class='formBox'>
     <div class="formItem">
       <%= f.label :image_url %><br>
       <%= f.text_field :image_url, placeholder: 'Image URL' %>
@@ -44,49 +49,54 @@
   </div>
 
   <div class='formBox'>
-    <div class="formItem">
-      <%= f.label :cook_time %><br>
-      <%= f.text_field :cook_time, placeholder: 'Cook Time' %>
-    </div>
-    <div class="formItem">
-      <%= f.label :serving_num %><br>
-      <%= f.text_field :serving_num, placeholder: 'Serving Number' %>
-    </div>
-  </div>
 
-  <div class='formLong'>
     <div class="formItem">
       <%= f.label :instruction %><br>
       <%= f.text_area :instruction, placeholder: 'Instructions' %>
     </div>
   </div>
 
+
 <div class='formLong itemListing'>
   <%= f.fields_for :ingredients do |ff|%>
-    <div class="ingredient" id='1'>
-      <%= ff.hidden_field :recipe_id %>
-      <div class="fielding">
-        <%= ff.label :quanity %><br>
-        <%= ff.text_field :quanity %>
+    <div class="ingredient" >
+
+      <div class="fielding formIngredient">
+        <%= ff.label :quantity %><br>
+        <%= ff.text_field :quantity, placeholder: 'Quantity' %>
       </div>
 
-      <div class="fielding">
+      <div class="fielding formIngredient">
         <%= ff.label :unit %><br>
-        <%= ff.text_field :unit %>
+        <%= ff.text_field :unit, placeholder: 'Unit' %>
       </div>
 
-      <div class="fielding">
-        <%= ff.label :item_id %><br>
-        <%= ff.select :item_id, Item.pluck(:name, :id) %>
+      <div class="fielding formIngredient">
+        <%# ff.select :item_id, Item.pluck(:name, :id) + [["Other","other"]], {}, {class: 'chosen-select'} %>
+        <%= ff.select :item_id, Item.pluck(:name, :id) + [["Other","other"]], include_blank: 'Select Item' %>
+        <div class="other_item" style="display:none">
+          <%= ff.fields_for :item, Item.new do |fff| %>
+            <%= fff.text_field :name, placeholder: 'Item' %>
+          <% end %>
+        </div>
+
       </div>
+
+
       <div class='fielding'>
         <a href=#><p class='cross'>&#10799;</p></a>
+        <%= ff.hidden_field :_destroy %>
       </div>
+
+
+
     </div>
   <% end %>
   </div>
 
-  <div class="actions">
-    <%= f.submit class:'submitForm' %>
+  <div class='formLong'>
+    <div class="actions">
+      <%= f.submit class:'submitForm' %>
+    </div>
   </div>
 <% end %>

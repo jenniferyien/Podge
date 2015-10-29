@@ -16,6 +16,7 @@
 //= require jquery-ui/sortable
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require chosen-jquery
 //= require react
 //= require react_ujs
 //= require turbolinks
@@ -33,19 +34,25 @@ $(function() {
       $parent=$(this).parents('.formItem');
       $label=$parent.find('label');
       $label.css('top','2px');
+      $parent2=$(this).parents('.formIngredient');
+      $label2=$parent2.find('label');
+      $label2.css('top','2px');
     });
     $('form').on('blur','input,textarea',function(){
       $parent=$(this).parents('.formItem');
       $label=$parent.find('label');
       $label.css('top','38px');
+      $parent2=$(this).parents('.formIngredient');
+      $label2=$parent2.find('label');
+      $label2.css('top','28px');
     });
 
-    var cloneCount = 2
+    // form ingredient listing
     $('form').on('keydown','.ingredient:last',function(){
       $clone = $('.ingredient:last').clone(true, true);
-      $clone.attr('id', cloneCount++)
       var count = $('.ingredient').length
       $clone.find('label').attr('for').replace(/[0-9]/, count)
+      $clone.find('.other_item').hide()
       $clone.find('input[name^="recipe[ingredients_attributes]"]').each(function(i, input) {
         $input = $(input)
         var change = $input.attr('name').replace(/\[ingredients_attributes\]\[[0-9]+\]/, '[ingredients_attributes]['+count+']')
@@ -55,10 +62,73 @@ $(function() {
       $('.formLong.itemListing').append($clone)
     });
 
+
+    // remove form from list
     $('.cross').on('click', function(event){
-      var id = $(this).closest(".ingredient").attr("id")
-      console.log(id)
-      $('#'+id).remove();
+      event.preventDefault();
+
+      var numElements = $(".ingredient:visible").length
+
+      if (numElements > 1) {
+        var $ingredient = $(this).closest(".ingredient")
+        $ingredient.find('input[name$="[_destroy]"]').val("1")
+        $ingredient.hide();
+        number = number - 1
+      }
+
     });
 
+    //chosen
+    // $(".chosen-select").chosen({
+    //   // allow_single_deselect: true,
+    //   no_results_text: 'No results matched',
+    //   width: '150px',
+    // });
+
+    //adding new item box with other option is clicked
+    $('select').on('change', function(){
+      var selectOther = $(this).val();
+      var newItem = $(this).siblings(".other_item")
+      if (selectOther == 'other'){
+        newItem.show()
+      } else {
+        newItem.hide()
+      }
+    })
+
+
+
+
+
+    var searchInput = $(".nav-search-container .search-input"),
+    selectInput = $("#type");
+
+// Focus if we click
+searchInput.focus(function(){
+    $(this).parent().addClass('focused');
+});
+
+searchInput.blur(function(){
+   window.setTimeout(blurTester, 100);
+});
+selectInput.blur(function(){
+    window.setTimeout(blurTester, 100);
+});
+
+function blurTester() {
+  if ($(searchInput).is(":focus") ||  $(selectInput).is(":focus") ){
+  }
+  else if ($(searchInput).val()) {
+
+  }
+  else {
+    $('.nav-search-container').removeClass('focused');
+  }
+}
+  // Show submit on input type
+  searchInput.keypress(function(){
+    if($(this).val() < 1){
+      $(this).parent().addClass('show-submit');
+    }
+  });
 });

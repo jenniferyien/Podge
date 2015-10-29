@@ -8,6 +8,7 @@ $grey: #7B7D8B;
 $torq: #CDDBDB;
 $beige: #D9CAB5;
 $cream: #ECEADA;
+$darkblue: #27384C;
 
 ul {
   list-style: none;
@@ -157,7 +158,7 @@ ul {
 .pageIntro {
   width: 100vw;
   height: 30px;
-  background-color: $grey;
+  background-color: $darkgrey;
   text-align: center;
   padding: 8px 0;
   color: $cream;
@@ -169,6 +170,7 @@ ul {
   margin: 2% 10%;
 }
 
+// form recipe display
 .formItem {
   display:block;
   position:relative;
@@ -210,44 +212,40 @@ ul {
   border:1px solid $grey;
   border-radius:5px;
   padding:10px;
-  width:100%;
+  min-width: 305px;
+  width:80%;
+  height: 300px;
   font-size:12px;
   outline:none;
   position:relative;
-  margin-top:8px;
+  // margin-top:8px;
 }
 
-.formItem .formError {
-  opacity:0;
-  position:absolute;
-  top:15px;
-  right:0;
-  padding:9px 10px;
-  width:160px;
-  border:1px solid #1f2124;
-  color:#752c2d;
-  text-align:right;
-  border-radius:5px;
-  background: #d84f51;
-  font-size:12px;
-}
 
+//select option
 select {
     height:35px;
     width:325px ;
     font-size: 13px;
-  }
+    margin-top: 10px;
+}
 
 .formBox {
   float: left;
   width: 50%;
+  min-height: 500px;
 }
 .formLong {
   float: left;
   width: 100%;
 }
 
+.actions{
+  text-align: center;
+}
+
 .ingredient {
+  clear:left;
   width: 100%;
   height: 50px;
   margin: 2% 0;
@@ -257,6 +255,69 @@ select {
   margin-top: 2%;
   float: left;
 }
+
+// ingredient form display
+
+.formIngredient {
+  display:block;
+  position:relative;
+  margin-bottom:10px;
+  margin: 0 5px;
+  height: 65px;
+}
+.formIngredient label {
+  position:absolute;
+  font-size:9px;
+  letter-spacing:2px;
+  top:26px;
+  left:1px;
+  width:60px;
+  border-radius:5px 5px 0 0;
+  background:$darkgrey;
+  color: $cream;
+  padding:4px 10px;
+  -webkit-transition:all 0.5s ease-in;
+}
+.formIngredient input {
+  background:$grey;
+  color:$cream;
+  letter-spacing:2px;
+  border:1px solid $grey;
+  border-radius:5px;
+  padding:10px;
+  width:60px;
+  height: 10px;
+  font-size:12px;
+  outline:none;
+  position:relative;
+  margin-top:8px;
+}
+.formIngredient select {
+  margin-top: 26px;
+  width: 150px;
+  height: 33px;
+  overflow: hidden;
+  background: $grey;
+  color: $cream;
+  border: 1px solid $grey;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  float: left;
+}
+
+
+.other_item {
+  float: left;
+  margin-left: 8px;
+  margin-top: 17px;
+}
+
+.cross {
+  font-size: 25px;
+  color: $darkblue;
+}
+
+
 
 #recipe_cuisine_id {
   overflow: hidden;
@@ -276,29 +337,133 @@ select {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
-
+//submit button
 .submitForm {
   border:none;
-  // background:#e64c65;
-  background:$grey;
+  background:#27384C;
   padding:7px;
   color:$cream;
   border-radius:2px;
   text-transform:uppercase;
   margin: 30px 6px 0;
-  width:33em;
+  width:28em;
   position:relative;
   box-shadow: 0 5px $darkgrey;
-  // box-shadow: 0 5px #ba3c50;
   cursor:pointer;
 }
-
 .submitForm:hover {
   top:2px;
   box-shadow: 0 3px $darkgrey;
-  // box-shadow: 0 3px #ba3c50;
 }
 
+
+
+nav {
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.nav-search-container {
+  margin: 0 auto;
+  display: inline-block;
+  margin-top: 100px;
+}
+
+// Search Box styling
+input[type="search"] {
+  box-sizing: border-box;
+  border-radius:0;
+}
+
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.nav-search-container {
+  position: relative;
+  color: $cream;
+  &:before {
+    position: absolute;
+    top: .8em;
+    left: 1.2em;
+    font-size: 15px;
+  }
+  text-align: left;
+  height: 100%;
+}
+
+.search-input {
+  outline: none;
+  width: 0px;
+  // color: transparent;
+  cursor: pointer;
+  border: none;
+  min-height: 43px;
+  font-size: 1.5em;
+  height: 100%;
+  // -webkit-appearance: textfield;
+  // box-sizing: border-box;
+  background-color: inherit;
+  border-right: 1px solid rgba($darkblue, 0.4);
+  border-left: 1px solid rgba($darkblue, 0.4);
+  padding: 8px 25px;
+  transition: all .2s, width .1s ease-in-out;
+  color: $darkblue;
+  &:hover {
+    background-color: rgba($grey, 0.2);
+  }
+  .focused & {
+    width: 250px;
+    background-color: rgba($grey, 0.2);
+    border-color: $darkblue;
+    font-size: 15px;
+    box-shadow: none;
+    padding-right: 85px;
+    padding-left: 40px;
+    cursor: auto;
+  }
+}
+// Submit
+.submit-container {
+  display: inline-block;
+  height: 43px;
+  width: 36px;
+  position: absolute;
+  visibility: hidden;
+  transition: visibility 1ms;
+  // Cancel Out default stylings
+  box-shadow: none;
+  box-sizing: border-box;
+
+
+  // Toggle When text entered
+  .show-submit.focused & {
+    visibility: inherit;
+  }
+  .submit {
+    height: 100%;
+    width: 0;
+    border-radius:0;
+    // Reset defualt stylings
+    text-indent: -999px;
+    background: $cream;
+    padding: 0;
+    border: none;
+    transition: width 200ms;
+    // Show when text entered
+    .show-submit & {
+      width: 100%;
+      visibility: inherit;
+    }
+  }
+}
+
+
+
+// media query for screensize, responsive
 @media (max-width: 950px) {
   #homepageintro h1 {
     font-size: 100px;
@@ -308,6 +473,9 @@ select {
     left: 30%;
     font-size: 22px;
     text-align: center;
+  }
+  .formBox {
+    width: 100%;
   }
 }
 
