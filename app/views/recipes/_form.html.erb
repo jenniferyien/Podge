@@ -72,8 +72,8 @@
       </div>
 
       <div class="fielding formIngredient">
-        <%# ff.select :item_id, Item.pluck(:name, :id) + [["Other","other"]], {}, {class: 'chosen-select'} %>
-        <%= ff.select :item_id, Item.pluck(:name, :id) + [["Other","other"]], include_blank: 'Select Item' %>
+        <%= ff.select :item_id, Item.pluck(:name, :id) + [["Other","other"]], {}, {class: 'chosen-select'} %>
+        <%# ff.select :item_id, Item.pluck(:name, :id) + [["Other","other"]], include_blank: 'Select Item' %>
         <div class="other_item" style="display:none">
           <%= ff.fields_for :item, Item.new do |fff| %>
             <%= fff.text_field :name, placeholder: 'Item' %>

@@ -49,17 +49,22 @@ $(function() {
 
     // form ingredient listing
     $('form').on('keydown','.ingredient:last',function(){
+      $('.chosen-select').chosen('destroy')
+
       $clone = $('.ingredient:last').clone(true, true);
       var count = $('.ingredient').length
       $clone.find('label').attr('for').replace(/[0-9]/, count)
       $clone.find('.other_item').hide()
+
       $clone.find('input[name^="recipe[ingredients_attributes]"]').each(function(i, input) {
         $input = $(input)
         var change = $input.attr('name').replace(/\[ingredients_attributes\]\[[0-9]+\]/, '[ingredients_attributes]['+count+']')
         $input.attr('name', change)
         $input.attr('id', change.replace('[', '_').replace(']','_'))
       });
+
       $('.formLong.itemListing').append($clone)
+      $('.chosen-select').chosen()
     });
 
 
@@ -79,11 +84,11 @@ $(function() {
     });
 
     //chosen
-    // $(".chosen-select").chosen({
-    //   // allow_single_deselect: true,
-    //   no_results_text: 'No results matched',
-    //   width: '150px',
-    // });
+    $(".chosen-select").chosen({
+      // allow_single_deselect: true,
+      no_results_text: 'No results matched',
+      width: '150px',
+    });
 
     //adding new item box with other option is clicked
     $('select').on('change', function(){
@@ -103,32 +108,65 @@ $(function() {
     var searchInput = $(".nav-search-container .search-input"),
     selectInput = $("#type");
 
-// Focus if we click
-searchInput.focus(function(){
-    $(this).parent().addClass('focused');
-});
+    // Focus if we click
+    searchInput.focus(function(){
+        $(this).parent().addClass('focused');
+    });
 
-searchInput.blur(function(){
-   window.setTimeout(blurTester, 100);
-});
-selectInput.blur(function(){
-    window.setTimeout(blurTester, 100);
-});
+    searchInput.blur(function(){
+       window.setTimeout(blurTester, 100);
+    });
+    selectInput.blur(function(){
+        window.setTimeout(blurTester, 100);
+    });
 
-function blurTester() {
-  if ($(searchInput).is(":focus") ||  $(selectInput).is(":focus") ){
-  }
-  else if ($(searchInput).val()) {
+    function blurTester() {
+      if ($(searchInput).is(":focus") ||  $(selectInput).is(":focus") ){
+      }
+      else if ($(searchInput).val()) {
 
-  }
-  else {
-    $('.nav-search-container').removeClass('focused');
-  }
-}
+      }
+      else {
+        $('.nav-search-container').removeClass('focused');
+      }
+    }
+
+
   // Show submit on input type
-  searchInput.keypress(function(){
+  searchInput.keypress(function(e){
     if($(this).val() < 1){
       $(this).parent().addClass('show-submit');
     }
   });
+
+
+  var array = []
+  searchInput.on('focusout',function(){
+
+    var words = this.value
+    array.push(words)
+    console.log(array)
+    var txt= this.value.replace(/[^a-zA-Z0-9\+\-\.\#]/g,'');
+    if(txt) {
+      $('#tags').append('<span class="tag">'+ txt.toLowerCase() +'</span>');
+    }
+    this.value="";
+  }).on('keyup',function( e ){
+    //enter key and space key will trigger function
+    if(e.keyCode === 13 || e.keyCode === 32){
+      $(this).focusout();
+    }
+  });
+
+  $('#tags').on('click','.tag',function(){
+    word = $(this).html()
+    console.log(word)
+    array = array.filter(function(words){
+      return (words != word)
+      console.log(word)
+    })
+
+     if(confirm("Really delete this tag?")) $(this).remove();
+  });
+
 });

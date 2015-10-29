@@ -11,6 +11,10 @@ var SearchPage = React.createClass({
       }.bind(this)
     })
   },
+  handleFocus: function(){
+    // var eat = React.findDOMNode(this.refs.txt).value
+    // console.log(eat)
+  },
   render: function(){
     var recipe = this.state.recipes.map(function(recipe){
       return (
@@ -23,12 +27,12 @@ var SearchPage = React.createClass({
     });
     return (
       <div>
-        <nav>
-  <div className="nav-search-container">
-    <input type="search" name="q" className="search-input ui-autocomplete-input" placeholder="Search Site..."/>
-    <div className="submit-container"><input className="submit" type="submit" value="Submit"/></div>
-  </div>
-</nav>
+
+      <div className="nav-search-container">
+        <input type="search" name="q" onFocusout={this.handleFocus} ref='txt' className="search-input ui-autocomplete-input" placeholder="Search ingredient..."/>
+        <div className="submit-container"><input className="submit" type="submit" value="bah"/></div>
+      </div>
+      <div className='itemContent' id='tags'></div>
       <ul className='foodinfo sortable'>{recipe}</ul>
       </div>
     )
