@@ -6,9 +6,14 @@ class RecipesController < ApplicationController
 
   def search
     puts params[:terms]
-    @recipes = Recipe.where('title iLIKE ?', "%#{params[:terms]}%")
-    # @recipes = Recipe.where('title iLIKE ?', "%#{params[:terms]}%")
-    puts @recipes
+    query = 'FALSE'
+    params[:terms].split(',').each do |term|
+      query += " OR item.name iLIKE ? OR ingredients.unit iLIKE ? OR ingredients.quantity iLIKE ?"
+    end
+    @items = Item.where(query, *params[:terms].split(',').map { |i| "%"+i+"%"}, *params[:terms].split(',').map { |i| "%"+i+"%"}, *params[:terms].split(',').map { |i| "%"+i+"%"}).eager_load(:ingredients)
+    if @items.any?
+      @recipes = Recipe.joins(:ingredients).where('ingredients.item_id IN (?)', @items.pluck(:id)).uniq
+    end
   end
   # GET /recipes
   # GET /recipes.json

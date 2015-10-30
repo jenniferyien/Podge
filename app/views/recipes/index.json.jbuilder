@@ -4,7 +4,7 @@ json.array!(@recipes) do |recipe|
       json.array!(recipe.ingredients) do |ingredient|
         json.extract! ingredient, :id, :quantity, :unit
         json.item do
-          json.name ingredient.item
+          json.name ingredient.item.name
         end
       end
     end
