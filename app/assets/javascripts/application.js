@@ -140,33 +140,4 @@ $(function() {
   });
 
 
-  var array = []
-  searchInput.on('focusout',function(){
-
-    var words = this.value
-    array.push(words)
-    console.log(array)
-    var txt= this.value.replace(/[^a-zA-Z0-9\+\-\.\#]/g,'');
-    if(txt) {
-      $('#tags').append('<span class="tag">'+ txt.toLowerCase() +'</span>');
-    }
-    this.value="";
-  }).on('keyup',function( e ){
-    //enter key and space key will trigger function
-    if(e.keyCode === 13 || e.keyCode === 32){
-      $(this).focusout();
-    }
-  });
-
-  $('#tags').on('click','.tag',function(){
-    word = $(this).html()
-    console.log(word)
-    array = array.filter(function(words){
-      return (words != word)
-      console.log(word)
-    })
-
-     if(confirm("Really delete this tag?")) $(this).remove();
-  });
-
 });

@@ -3,6 +3,13 @@ class RecipesController < ApplicationController
 
   def home
   end
+
+  def search
+    puts params[:terms]
+    @recipes = Recipe.where('title iLIKE ?', "%#{params[:terms]}%")
+    # @recipes = Recipe.where('title iLIKE ?', "%#{params[:terms]}%")
+    puts @recipes
+  end
   # GET /recipes
   # GET /recipes.json
   def index

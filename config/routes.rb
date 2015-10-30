@@ -13,8 +13,11 @@ Rails.application.routes.draw do
   get '/favoriteRecipe', to: 'recipes#showFavorites'
   # forking a recipe
   post '/forkRecipe/:recipe_id', to: 'recipes#fork'
-
+  #view for each recipes user forked and created
   get '/userRecipe/:id', to: 'recipes#userRecipe'
+
+  post '/search/:terms', to: 'recipes#search'
+  get '/search/:terms', to: 'recipes#search'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,6 +1,6 @@
 var SearchPage = React.createClass({
   getInitialState: function(){
-    return {recipes: []}
+    return {recipes: [], searchTerms: [], searchTags: []}
   },
   componentDidMount: function(){
     $.ajax({
@@ -11,9 +11,30 @@ var SearchPage = React.createClass({
       }.bind(this)
     })
   },
-  handleFocus: function(){
-    // var eat = React.findDOMNode(this.refs.txt).value
-    // console.log(eat)
+  handleType: function(e){
+    var term = React.findDOMNode(this.refs.term).value
+    var wordList = this.state.searchTags
+    var wordTerms = this.state.searchTerms
+    if(e.keyCode === 13 || e.keyCode === 32){
+      words = term.replace(/\s/g, '')
+      if (words != ''){
+        wordTerms.push(words)
+      }
+      var txt = term.replace(/[^a-zA-Z0-9\+\-\.\#]/g,'');
+      if(txt) {
+
+        wordList.push(txt.toLowerCase())
+      }
+      React.findDOMNode(this.refs.term).value = ''
+    }
+    this.setState({searchTags: wordList, searchTerms: wordTerms})
+  },
+  handleClick: function(e){
+    var terms = this.state.searchTerms
+    var index = this.state.searchTerms.indexOf(e)
+    if(confirm("Really delete this tag?")) document.getElementById('tag'+e).remove();
+    terms.splice(index, 1)
+    this.setState({searchTerms: terms})
   },
   render: function(){
     var recipe = this.state.recipes.map(function(recipe){
@@ -27,13 +48,18 @@ var SearchPage = React.createClass({
     });
     return (
       <div>
-
-      <div className="nav-search-container">
-        <input type="search" name="q" onFocusout={this.handleFocus} ref='txt' className="search-input ui-autocomplete-input" placeholder="Search ingredient..."/>
-        <div className="submit-container"><input className="submit" type="submit" value="bah"/></div>
-      </div>
-      <div className='itemContent' id='tags'></div>
-      <ul className='foodinfo sortable'>{recipe}</ul>
+        <div className="nav-search-container">
+          <input type="search" name="q" onKeyUp={this.handleType} ref='term' className="search-input ui-autocomplete-input" placeholder="Search ingredient..."/>
+          <div className="submit-container"><input className="submit" type="submit" value=""/></div>
+        </div>
+        <div className='itemContent' id='tags'>
+          {this.state.searchTags.map(function(tag, index) {
+            return (
+              <span className="tag" ref='tagWord' onClick={this.handleClick.bind(this, tag)} id={'tag'+tag}>{tag}</span>
+            );
+          }, this)}
+        </div>
+        <ul className='foodinfo sortable'>{recipe}</ul>
       </div>
     )
   }
