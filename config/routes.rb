@@ -16,8 +16,15 @@ Rails.application.routes.draw do
   #view for each recipes user forked and created
   get '/userRecipe/:id', to: 'recipes#userRecipe'
 
+  # search key words for recipes in database
   post '/search/:terms', to: 'recipes#search'
   get '/search/:terms', to: 'recipes#search'
+
+  # about page display
+  get '/about', to: 'recipes#about'
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -69,7 +69,7 @@ var SearchPage = React.createClass({
             <a href={'/recipes/'+recipe.id}><h2>{recipe.title}</h2></a>
             <a href={'/recipes/'+recipe.id}><img width="250" height="150" src={recipe.image_url}/></a>
             <ul>
-              <h3>Ingredients you'll need:</h3>
+              <h3>Missing ingredients:</h3>
               {list}
             </ul>
           </li>

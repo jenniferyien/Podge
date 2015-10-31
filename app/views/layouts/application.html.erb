@@ -7,31 +7,37 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <!-- navigation bar -->
   <div class="navigation">
     <h2>Podge</h2>
     <nav>
+      <!-- list of navigation options -->
       <a href="/"><li>Home </li></a>
       <a href="/recipes"><li>Search </li></a>
+      <!-- only shows up if user is logged in -->
       <% if current_user %>
         <a href="/favoriteRecipe"><li>Favorites </li></a>
         <a href= <%= "/userRecipe/#{current_user.id}" %> ><li>My Recipes </li></a>
         <li><%= link_to 'Add New Recipe', new_recipe_path %></li>
       <% end %>
-      <a href="#"><li>About </li></a>
-      <a href="#"><li>Contact </li></a>
+      <a href="/about"><li>About </li></a>
     </nav>
+    <!-- login/logout options for users -->
     <% if current_user %>
       <p><strong>Signed in as <%= current_user.first_name %></strong><p>
       <button class='logout'><strong><%= link_to "Sign out", signout_path%></strong></button>
     <% else %>
+      <!-- google and facebook omniauth login links -->
       <button id='facebook'><strong><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></strong></button>
       <button id='google'><strong><%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %></strong></button>
     <% end %>
+    <!-- hamburger icon -->
     <div class="grab">&#9776;</div>
+    <!-- fun image on nav -->
+    <div class='image'></div>
   </div>
 
   <%= yield %>
-
 
 </body>
 </html>

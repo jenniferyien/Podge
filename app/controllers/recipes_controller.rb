@@ -4,6 +4,9 @@ class RecipesController < ApplicationController
   def home
   end
 
+  def about
+  end
+
   def search
     puts params[:terms]
     query = 'FALSE'

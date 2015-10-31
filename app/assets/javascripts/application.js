@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require sortable
 //= require jquery-ui/sortable
+//= require jquery-ui/accordion
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require chosen-jquery
@@ -132,12 +133,22 @@ $(function() {
     }
 
 
-  // Show submit on input type
-  searchInput.keypress(function(e){
-    if($(this).val() < 1){
-      $(this).parent().addClass('show-submit');
-    }
-  });
+    // Show submit on input type
+    searchInput.keypress(function(e){
+      if($(this).val() < 1){
+        $(this).parent().addClass('show-submit');
+      }
+    });
 
+    $( "#accordion" ).accordion();
+
+    $('#accordion .questions').click(function(){
+      $('#accordion .questions').removeClass('active')
+      $('#accordion .questions .symbol').html('&#8811;')
+      if ($(this).attr('class') != 'active'){
+        $(this).addClass('active');
+        console.log($(this).find('.symbol').html('&#10836;'))
+      }
+  });
 
 });

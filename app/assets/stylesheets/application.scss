@@ -52,8 +52,10 @@ a {
   }
 }
 
+//container flow for content
 .container {
   padding: 2% 5%;
+  padding-left: 50px;
   background-color: $torq;
   min-height: 100vh;
   height: 100%;
@@ -62,7 +64,7 @@ a {
 
 //sidebar hover
 
- .navigation {
+.navigation {
    height: 100%;
    width:210px;
    position:fixed;
@@ -73,7 +75,7 @@ a {
    z-index: 1;
  }
 
- .navigation:hover {
+.navigation:hover {
    left:0;
    background:$darkblue;
    box-shadow:3px 0px 30px 2px rgba(0,0,0,.7);
@@ -97,11 +99,11 @@ a {
 }
 
 //menu side navigation section
- .navigation nav{
+.navigation nav{
    list-style:none;
  }
 
- .navigation nav li {
+.navigation nav li {
    padding:8px 20px;
    width: 155px;
    background:$grey;
@@ -113,19 +115,20 @@ a {
    -webkit-transition:all .3s ease;
  }
 
- .navigation nav li:hover {
+.navigation nav li:hover {
    background:$grey;
    border-left:7px solid $torq;
    padding-left:15px;
    -webkit-transition:none;
  }
- .navigation nav li:active {
+
+.navigation nav li:active {
    background:$grey;
    color:white;
  }
 
- // hamburger symbol
- .navigation:hover .grab{
+// hamburger symbol
+.navigation:hover .grab{
   right:none;
   color: $darkgrey;
   -webkit-transform: rotate(90deg);
@@ -133,7 +136,7 @@ a {
   right:40px;
  }
 
- .navigation .grab{
+.navigation .grab{
   position:absolute;
   font-size: 30px;
   right:7px;
@@ -141,6 +144,14 @@ a {
   color:$cream;
   -webkit-transform: rotate(0);
   -webkit-transition:all .3s ease-out;
+ }
+
+//navbar image
+.image {
+   background-image: image-url('food.png');
+   background-size: contain;
+   width: 200px;
+   height: 200px;
  }
 
 //facebook sign in
