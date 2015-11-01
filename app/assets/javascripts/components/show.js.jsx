@@ -56,6 +56,7 @@ var ShowRecipe = React.createClass({
     var favorite;
     var fork;
     var author;
+    var parent;
     var recipeId = this.state.recipe.id
     // converting the ingredients into an array to loop
     var ingredientArray = $.makeArray(this.state.recipe.ingredients)
@@ -82,6 +83,15 @@ var ShowRecipe = React.createClass({
         )
       }
     });
+    //if there is a parent recipe
+    if (this.state.recipe.recipe) {
+      parent = <li className='rbox'>
+          <a href={'/recipes/'+this.state.recipe.recipe.id}><h2>{this.state.recipe.recipe.title}</h2></a>
+          <a href={'/recipes/'+this.state.recipe.recipe.id}><img width="250" height="150" src={this.state.recipe.recipe.image_url}/></a>
+          <p>{this.state.recipe.recipe.description}</p>
+        </li>
+
+    }
     // if recipe has a author
     if (this.state.recipe.user) {
         author = <p><strong>Recipe by:</strong> <a href={'/userRecipe/'+this.state.recipe.user.id} className='userLink'> {this.state.recipe.user.first_name} {this.state.recipe.user.last_name}</a></p>
@@ -122,7 +132,7 @@ var ShowRecipe = React.createClass({
         </div>
         <div className='relatedRecipe'>
           <h2>Related Recipes:</h2>
-          <ul className='foodinfo sortable'>{related}</ul>
+          <ul className='foodinfo sortable'>{parent}{related}</ul>
         </div>
       </div>
     )
