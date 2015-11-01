@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy', as: 'signout'
   # saving recipe
   post '/favoriteRecipe/:recipe_id', to: 'recipes#favorite'
+  # deleting favorite recipe
+  delete '/favoriteRecipe/:id', to: 'recipes#favoriteDelete'
   # display favorite recipe list
   get '/favoriteRecipe', to: 'recipes#showFavorites'
   # forking a recipe

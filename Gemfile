@@ -46,6 +46,9 @@ gem 'jquery-ui-rails'
 #using deep cloneable to fork infomation
 gem 'deep_cloneable', '~> 2.1.1'
 
+#use redcarpet to do markdown text
+gem 'redcarpet'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

@@ -40,7 +40,15 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1/edit
   def edit
-    @recipe.ingredients.build
+    if current_user
+      if current_user.id = @recipe.user_id
+        @recipe.ingredients.build
+      else
+        redirect_to '/'
+      end
+    else
+      redirect_to '/'
+    end
   end
 
   # forking a recipe
@@ -92,6 +100,18 @@ class RecipesController < ApplicationController
     end
   end
 
+  #deleting favorite recipes
+  def favoriteDelete
+    if current_user
+      @favorite = Favorite.find_by(id: params[:id])
+      if current_user.id == @favorite.user_id
+        @favorite.destroy
+      else
+        redirect_to '/'
+      end
+    end
+  end
+
   # POST /recipes
   # POST /recipes.json
   def create
@@ -126,10 +146,16 @@ class RecipesController < ApplicationController
   # DELETE /recipes/1
   # DELETE /recipes/1.json
   def destroy
-    @recipe.destroy
-    respond_to do |format|
-      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
-      format.json { head :no_content }
+    if current_user
+      if current_user.id == @recipe.user_id
+        @recipe.destroy
+        respond_to do |format|
+          format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
+          format.json { head :no_content }
+        end
+      else
+        redirect_to '/'
+      end
     end
   end
 

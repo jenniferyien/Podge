@@ -58,9 +58,9 @@
 
 
 <div class='formLong itemListing'>
+  <h3>Ingredients:</h3>
   <%= f.fields_for :ingredients do |ff|%>
     <div class="ingredient" >
-
       <div class="fielding formIngredient">
         <%= ff.label :quantity %><br>
         <%= ff.text_field :quantity, placeholder: 'Quantity' %>
@@ -72,7 +72,7 @@
       </div>
 
       <div class="fielding formIngredient">
-        <%= ff.select :item_id, Item.pluck(:name, :id) + [["Other","other"]], {}, {class: 'chosen-select'} %>
+        <%= ff.select :item_id, Item.pluck(:name, :id) + [["Other","other"]], {include_blank: 'Select Item'}, {class: 'chosen-select'} %>
         <%# ff.select :item_id, Item.pluck(:name, :id) + [["Other","other"]], include_blank: 'Select Item' %>
         <div class="other_item" style="display:none">
           <%= ff.fields_for :item, Item.new do |fff| %>
