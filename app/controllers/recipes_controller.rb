@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
   def about
   end
 
+  #search feature for item ingredients that match
   def search
     puts params[:terms]
     query = 'FALSE'
@@ -23,6 +24,8 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
     @ingredients = Ingredient.all
+    @cuisines = Cuisine.all
+    @categories = Category.all
   end
 
   # GET /recipes/1

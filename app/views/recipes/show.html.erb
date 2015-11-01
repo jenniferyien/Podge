@@ -11,8 +11,8 @@
 <div class='container'>
   <p id="notice"><%= notice %></p>
   <% if current_user %>
-  <%= react_component 'ShowRecipe', {currentUser:current_user.id, id:@recipe.id, fork: image_url('fork.png'), heart: image_url('heart.png')} %>
+    <%= react_component 'ShowRecipe', {currentUser:current_user.id, id:@recipe.id, fork: image_url('fork.png'), heart: image_url('heart.png')} %>
   <% else %>
-  <%= react_component 'ShowRecipe', {currentUser:current_user, id:@recipe.id, fork: image_url('fork.png'), heart: image_url('heart.png')} %>
+    <%= react_component 'ShowRecipe', {currentUser:current_user, id:@recipe.id, fork: image_url('fork.png'), heart: image_url('heart.png')} %>
   <% end %>
 </div>

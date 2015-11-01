@@ -1,7 +1,9 @@
 var ShowRecipe = React.createClass({
+  //initial state for recipe that is shown
   getInitialState: function(){
     return {recipe: []}
   },
+  //grabs the recipe info using ajax based on recipe id
   componentDidMount: function(){
     $.ajax({
       url: '/recipes/'+ this.props.id +'.json',
@@ -11,6 +13,7 @@ var ShowRecipe = React.createClass({
       }.bind(this)
     })
   },
+  //when user favorites a recipe, ajax call is sent to favorite route to save the recipe for user
   handleFavorite: function(){
     $.ajax({
       url: '/favoriteRecipe/' + this.state.recipe.id,
@@ -22,8 +25,10 @@ var ShowRecipe = React.createClass({
         console.log(error)
       }
     })
+    //redirect location
     document.location = '/favoriteRecipe'
   },
+  // when user forks a recipe ajax call is sent to make sure recipe is saved under user id as their own
   handleFork: function(){
     $.ajax({
       url:'/forkRecipe/' + this.state.recipe.id,
@@ -35,21 +40,28 @@ var ShowRecipe = React.createClass({
         console.log(error)
       }
     })
+    //redirect location
     document.location = '/userRecipe/' + this.props.currentUser
   },
+  //renders the user view
   render: function(){
+    // declaring variables
     var favorite;
     var fork;
+    // converting the ingredients into an array to loop
     var ingredientArray = $.makeArray(this.state.recipe.ingredients)
+    //looping through each ingredients to list
     var eachIngredient = ingredientArray.map(function(item){
       return (
         <li>{item.quantity} {item.unit} {item.item.name}</li>
       )
     });
+    // if there is a current User the icons favorite and fork will display
     if (this.props.currentUser){
       favorite = <a href='#' onClick={this.handleFavorite}><li><img src={this.props.heart} width="22" height="22"/></li></a>
-      fork = <a href='#' onClick={this.handleFork}><li><img src={this.props.fork} width="42" height="32"/></li></a>
+      fork = <a href='#' onClick={this.handleFork}><li><img src={this.props.fork} width="42" height="24"/></li></a>
     };
+    //renders dom element
     return (
       <div className='recipeShow'>
         <div className='select'>
@@ -60,7 +72,6 @@ var ShowRecipe = React.createClass({
         </div>
         <div className='showContainer'>
           <div className='box info'>
-            <h1>{this.state.recipe.title}</h1>
             <p><strong>Cuisine:</strong> {this.state.recipe.cuisine}</p>
             <p><strong>Category:</strong> {this.state.recipe.category}</p>
             <p><strong>Cook Time:</strong> {this.state.recipe.cook_time}</p>
