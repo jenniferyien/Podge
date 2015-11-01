@@ -239,6 +239,14 @@ ul {
   margin: 5%;
 }
 
+//recipe user link
+a.userLink span{
+  color: $darkblue
+}
+a.userLink span:hover{
+  color: $cream
+}
+
 //************** FORMPAGE CSS*****************//
 // form pages
 .pageIntro {
