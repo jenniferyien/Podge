@@ -1,28 +1,34 @@
-== README
+# PODGE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Preview Intro to Podge- Presentation](https://docs.google.com/presentation/d/1Ig0jNV8NIds8qMTv6vcsSym1xaJX3ZPHCp5bXSkp1nM/edit?usp=sharing)
 
-Things you may want to cover:
+##### What is Podge?
+> Podge is a reverse recipe app.
+> It takes your hodge podge of ingredients and shows recipes you can make.
 
-* Ruby version
+##### What is the problem?
+* Have ingredients and don’t know what you can make?
+* Want to make something new?
 
-* System dependencies
+##### Who is it for?
+People...
+* with random or leftover ingredients
+* looking to try new recipes
 
-* Configuration
+##### How does it work?
+1. Type ingredients
+2. Show recipes
+3. Refine results
 
-* Database creation
+#### Technologies:
+* Database: PostgreSQL
+* Backend: Ruby on Rails
+> * Omniauth- Facebook
+> * Omniauth- Google
+* Frontend: React/ HTML/ CSS
+> * React-rails
+> * jQuery UI -sortable
+> * jQuery UI- accordion
+> * jQuery chosen
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+###### by Jennifer Yien

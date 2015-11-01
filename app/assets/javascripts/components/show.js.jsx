@@ -1,7 +1,7 @@
 var ShowRecipe = React.createClass({
   //initial state for recipe that is shown
   getInitialState: function(){
-    return {recipe: []}
+    return {recipe: [], recipes: []}
   },
   //grabs the recipe info using ajax based on recipe id
   componentDidMount: function(){
@@ -10,6 +10,13 @@ var ShowRecipe = React.createClass({
       method: 'GET',
       success: function(data, error, xhr){
         this.setState({recipe: data});
+      }.bind(this)
+    })
+    $.ajax({
+      url: '/recipes.json',
+      method: 'GET',
+      success: function(data, status, xhr){
+        this.setState({recipes: data.recipes})
       }.bind(this)
     })
   },
@@ -48,6 +55,7 @@ var ShowRecipe = React.createClass({
     // declaring variables
     var favorite;
     var fork;
+    var recipeId = this.state.recipe.id
     // converting the ingredients into an array to loop
     var ingredientArray = $.makeArray(this.state.recipe.ingredients)
     //looping through each ingredients to list
@@ -61,6 +69,18 @@ var ShowRecipe = React.createClass({
       favorite = <a href='#' onClick={this.handleFavorite}><li><img src={this.props.heart} width="22" height="22"/></li></a>
       fork = <a href='#' onClick={this.handleFork}><li><img src={this.props.fork} width="42" height="24"/></li></a>
     };
+    //related recipes
+    var related = this.state.recipes.map(function(recipe){
+      if (recipe.recipe_id == recipeId){
+        return (
+          <li className='rbox'>
+            <a href={'/recipes/'+recipe.id}><h2>{recipe.title}</h2></a>
+            <a href={'/recipes/'+recipe.id}><img width="250" height="150" src={recipe.image_url}/></a>
+            <p>{recipe.description}</p>
+          </li>
+        )
+      }
+    });
     //renders dom element
     return (
       <div className='recipeShow'>
@@ -93,6 +113,10 @@ var ShowRecipe = React.createClass({
             <h2>Instructions:</h2>
             <p>{this.state.recipe.instruction}</p>
           </div>
+        </div>
+        <div className='relatedRecipe'>
+          <h2>Related Recipes:</h2>
+          <ul className='foodinfo sortable'>{related}</ul>
         </div>
       </div>
     )
