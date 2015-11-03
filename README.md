@@ -20,6 +20,11 @@ People...
 2. Show recipes
 3. Refine results
 
+##### Features:
+* Fork Recipes - Copy Recipes as your own and edit as you like
+* Favorite Recipes - Tagging your favorites
+* Creating your own Recipes
+
 #### Technologies:
 * Database: PostgreSQL
 * Backend: Ruby on Rails
